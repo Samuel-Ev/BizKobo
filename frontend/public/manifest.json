@@ -1,0 +1,12 @@
+{
+  "name": "BizKobo — Every kobo counts.",
+  "short_name": "BizKobo",
+  "description": "AI-powered bookkeeping, savings, and micro-credit for Nigerian students, traders, and small businesses",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#FAFBF9",
+  "theme_color": "#214E35",
+  "icons": [
+    { "src": "/logo-mark.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
