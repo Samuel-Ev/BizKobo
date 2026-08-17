@@ -90,7 +90,7 @@ export default function LoginPage() {
           className="w-full max-w-sm"
         >
           <div className="flex items-center gap-2.5 mb-8 lg:hidden">
-            <img src="/logo-mark.png" alt="BizKobo" className="w-9 h-9 rounded-xl object-contain bg-paper p-1.5" />
+            <img src="/logo-mark.png" alt="BizKobo" className="w-9 h-9 rounded-xl object-contain bg-white p-1.5 border border-line/[0.08]" />
             <span className="font-display font-semibold text-paper text-lg">BizKobo</span>
           </div>
 
@@ -109,7 +109,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-ink-2 border border-black/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60 transition-colors"
+                className="w-full bg-ink-2 border border-line/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60 transition-colors"
                 placeholder="you@nbu.edu.ng"
               />
             </div>
@@ -120,13 +120,13 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-ink-2 border border-black/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60 transition-colors"
+                className="w-full bg-ink-2 border border-line/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60 transition-colors"
                 placeholder="••••••••"
               />
             </div>
 
             {error && (
-              <div className="text-[12.5px] text-red-700 bg-red-50 border border-red-200 rounded-xl px-3.5 py-2.5">
+              <div className="text-[12.5px] text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/50 rounded-xl px-3.5 py-2.5">
                 {error}
               </div>
             )}

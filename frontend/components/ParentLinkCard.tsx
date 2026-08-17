@@ -45,7 +45,7 @@ export default function ParentLinkCard() {
   if (!ready) return null;
 
   return (
-    <div className="rounded-xl2 border border-black/[0.07] bg-ink-2 p-5 mt-4">
+    <div className="rounded-xl2 border border-line/[0.07] bg-ink-2 p-5 mt-4">
       <div className="flex items-center gap-2 mb-1">
         <Users2 size={16} className="text-copper-light" />
         <h3 className="font-display font-semibold text-paper text-[14px]">Parent monitoring</h3>
@@ -57,7 +57,7 @@ export default function ParentLinkCard() {
 
       {link ? (
         <div>
-          <div className="flex items-center gap-2 bg-ink-3 border border-black/[0.09] rounded-xl px-3.5 py-3 mb-2">
+          <div className="flex items-center gap-2 bg-ink-3 border border-line/[0.09] rounded-xl px-3.5 py-3 mb-2">
             <span className="text-[12px] text-slate truncate flex-1">{shareUrl(link.share_token)}</span>
             <button onClick={copyLink} className="shrink-0 text-copper-light">
               {copied ? <Check size={15} /> : <Copy size={15} />}
@@ -74,21 +74,21 @@ export default function ParentLinkCard() {
             value={parentName}
             onChange={(e) => setParentName(e.target.value)}
             placeholder="Parent/guardian name (optional)"
-            className="w-full bg-ink-3 border border-black/[0.09] rounded-xl px-3.5 py-2.5 text-[13px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
+            className="w-full bg-ink-3 border border-line/[0.09] rounded-xl px-3.5 py-2.5 text-[13px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
           />
           <input
             type="email"
             value={parentEmail}
             onChange={(e) => setParentEmail(e.target.value)}
             placeholder="Parent email (optional)"
-            className="w-full bg-ink-3 border border-black/[0.09] rounded-xl px-3.5 py-2.5 text-[13px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
+            className="w-full bg-ink-3 border border-line/[0.09] rounded-xl px-3.5 py-2.5 text-[13px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
           />
           <input
             type="number"
             value={budgetLimit}
             onChange={(e) => setBudgetLimit(e.target.value)}
             placeholder="Monthly budget limit, ₦ (optional)"
-            className="w-full bg-ink-3 border border-black/[0.09] rounded-xl px-3.5 py-2.5 text-[13px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
+            className="w-full bg-ink-3 border border-line/[0.09] rounded-xl px-3.5 py-2.5 text-[13px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
           />
           <button type="submit" className="w-full bg-copper hover:brightness-110 text-white font-semibold text-sm rounded-xl py-3">
             Generate link

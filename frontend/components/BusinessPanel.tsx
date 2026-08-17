@@ -105,8 +105,8 @@ export default function BusinessPanel() {
 
   if (businesses.length === 0 && !showCreate) {
     return (
-      <div className="flex flex-col items-center text-center py-16 px-6 rounded-xl2 border border-dashed border-black/[0.09]">
-        <div className="w-11 h-11 rounded-2xl bg-black/[0.035] flex items-center justify-center mb-4">
+      <div className="flex flex-col items-center text-center py-16 px-6 rounded-xl2 border border-dashed border-line/[0.09]">
+        <div className="w-11 h-11 rounded-2xl bg-line/[0.035] flex items-center justify-center mb-4">
           <Briefcase size={20} className="text-copper-light" />
         </div>
         <h3 className="font-display font-semibold text-paper mb-1.5">Run a business?</h3>
@@ -126,7 +126,7 @@ export default function BusinessPanel() {
 
   if (showCreate) {
     return (
-      <form onSubmit={handleCreate} className="rounded-xl2 border border-black/[0.07] bg-ink-2 p-5 space-y-4">
+      <form onSubmit={handleCreate} className="rounded-xl2 border border-line/[0.07] bg-ink-2 p-5 space-y-4">
         <h3 className="font-display font-semibold text-paper mb-1">Add your business</h3>
         <div>
           <label className="text-[12.5px] font-medium text-slate mb-1.5 block">Business name</label>
@@ -135,7 +135,7 @@ export default function BusinessPanel() {
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
             placeholder="e.g. Sammy Rice Corner"
-            className="w-full bg-ink-3 border border-black/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
+            className="w-full bg-ink-3 border border-line/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
           />
         </div>
         <div>
@@ -143,7 +143,7 @@ export default function BusinessPanel() {
           <select
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
-            className="w-full bg-ink-3 border border-black/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper focus:outline-none focus:border-copper-light/60"
+            className="w-full bg-ink-3 border border-line/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper focus:outline-none focus:border-copper-light/60"
           >
             <option value="food">Food & drinks</option>
             <option value="laundry">Laundry</option>
@@ -156,7 +156,7 @@ export default function BusinessPanel() {
           <button type="submit" className="flex-1 bg-copper hover:brightness-110 text-white font-semibold text-sm rounded-xl py-3">
             Create
           </button>
-          <button type="button" onClick={() => setShowCreate(false)} className="px-4 border border-black/[0.09] text-paper rounded-xl text-sm">
+          <button type="button" onClick={() => setShowCreate(false)} className="px-4 border border-line/[0.09] text-paper rounded-xl text-sm">
             Cancel
           </button>
         </div>
@@ -173,7 +173,7 @@ export default function BusinessPanel() {
               key={b.id}
               onClick={() => setActive(b)}
               className={`shrink-0 px-3.5 py-2 rounded-full text-[12.5px] font-medium border ${
-                active?.id === b.id ? "bg-copper/15 border-copper-light/50 text-paper" : "border-black/[0.09] text-slate"
+                active?.id === b.id ? "bg-copper/15 border-copper-light/50 text-paper" : "border-line/[0.09] text-slate"
               }`}
             >
               {b.name}
@@ -191,20 +191,20 @@ export default function BusinessPanel() {
       )}
 
       {/* Voice/text entry */}
-      <div className="rounded-xl2 border border-black/[0.07] bg-ink-2 p-4 mb-5">
+      <div className="rounded-xl2 border border-line/[0.07] bg-ink-2 p-4 mb-5">
         <div className="text-[12px] font-semibold text-slate mb-2.5">Log a sale or expense</div>
         <div className="flex gap-2">
           <input
             value={inputText}
             onChange={(e) => { setInputText(e.target.value); setPreview(null); }}
             placeholder="Say or type: 'I sold rice for 25000'"
-            className="flex-1 bg-ink-3 border border-black/[0.09] rounded-xl px-3.5 py-2.5 text-[13.5px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
+            className="flex-1 bg-ink-3 border border-line/[0.09] rounded-xl px-3.5 py-2.5 text-[13.5px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60"
           />
           <button
             type="button"
             onClick={startListening}
             className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-              listening ? "bg-amber/25 text-amber animate-pulse" : "bg-black/[0.04] text-slate"
+              listening ? "bg-amber/25 text-amber animate-pulse" : "bg-line/[0.04] text-slate"
             }`}
             title="Voice input (English/Pidgin, browser-based)"
           >
@@ -255,14 +255,14 @@ export default function BusinessPanel() {
       </div>
 
       <div className="text-[13px] font-semibold text-paper mb-3">Recent entries</div>
-      <div className="rounded-xl2 border border-black/[0.07] bg-ink-2 divide-y divide-black/[0.07] overflow-hidden">
+      <div className="rounded-xl2 border border-line/[0.07] bg-ink-2 divide-y divide-line/[0.07] overflow-hidden">
         {entries.length === 0 && (
           <div className="text-center py-8 text-[12.5px] text-slate">No entries yet — log your first sale above.</div>
         )}
         {entries.map((entry) => (
           <div key={entry.id} className="flex items-center gap-3 px-4 py-3">
             <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
-              entry.type === "sale" ? "bg-green/20 text-green-light" : "bg-black/[0.045] text-paper"
+              entry.type === "sale" ? "bg-green/20 text-green-light" : "bg-line/[0.045] text-paper"
             }`}>
               {entry.type === "sale" ? <TrendingUp size={15} /> : <TrendingDown size={15} />}
             </div>
@@ -285,7 +285,7 @@ export default function BusinessPanel() {
 function StatCard({ label, value, tone }: { label: string; value: number; tone: "green" | "amber" | "neutral" }) {
   const color = tone === "green" ? "text-green-light" : tone === "amber" ? "text-amber" : "text-paper";
   return (
-    <div className="rounded-xl bg-ink-2 border border-black/[0.07] px-3 py-3">
+    <div className="rounded-xl bg-ink-2 border border-line/[0.07] px-3 py-3">
       <div className="text-[10px] text-slate uppercase tracking-wide font-semibold mb-1">{label}</div>
       <div className={`font-mono text-[13.5px] font-semibold tabular ${color}`}>
         ₦{value.toLocaleString("en-NG")}

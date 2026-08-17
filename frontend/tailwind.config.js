@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -7,10 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#FAFBF9",
-        "ink-2": "#FFFFFF",
-        "ink-3": "#F0F4F0",
-        paper: "#16281D",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        "ink-2": "rgb(var(--color-ink-2) / <alpha-value>)",
+        "ink-3": "rgb(var(--color-ink-3) / <alpha-value>)",
+        paper: "rgb(var(--color-paper) / <alpha-value>)",
+        line: "rgb(var(--color-line) / <alpha-value>)",
         copper: {
           DEFAULT: "#D9A230",
           light: "#EFB63F",
@@ -23,8 +25,8 @@ module.exports = {
         },
         amber: "#E8A33D",
         slate: {
-          DEFAULT: "#66746B",
-          dark: "#425046",
+          DEFAULT: "rgb(var(--color-slate) / <alpha-value>)",
+          dark: "rgb(var(--color-slate-dark) / <alpha-value>)",
         },
       },
       fontFamily: {

@@ -17,7 +17,7 @@ export default function TrustScoreCard({ data }: { data: TrustScore }) {
     data.tier === "Gold" ? 0 : Math.max(0, [500, 650, 780][["Starter", "Bronze", "Silver"].indexOf(data.tier)] - data.score);
 
   return (
-    <div className="rounded-xl2 border border-black/[0.07] bg-ink-2 p-4.5 lg:p-5 mb-7 flex items-center gap-5">
+    <div className="rounded-xl2 border border-line/[0.07] bg-ink-2 p-4.5 lg:p-5 mb-7 flex items-center gap-5">
       <div className="relative w-14 h-[74px] shrink-0">
         {[0, 1, 2, 3, 4].map((i) => {
           const bottom = i * 11;

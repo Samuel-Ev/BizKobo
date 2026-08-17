@@ -73,7 +73,7 @@ export default function UrgentModal({
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="w-full lg:max-w-md bg-ink-2 border border-black/[0.09] lg:border rounded-t-[28px] lg:rounded-[24px] p-6 pb-8"
+            className="w-full lg:max-w-md bg-ink-2 border border-line/[0.09] lg:border rounded-t-[28px] lg:rounded-[24px] p-6 pb-8"
           >
             <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
@@ -122,7 +122,7 @@ export default function UrgentModal({
             )}
 
             {error && (
-              <div className="rounded-xl border border-red-200 bg-red-50 p-3.5 text-[12.5px] text-red-700 mb-2">
+              <div className="rounded-xl border border-red-200 dark:border-red-800/50 bg-red-50 dark:bg-red-950/40 p-3.5 text-[12.5px] text-red-700 dark:text-red-300 mb-2">
                 {error}
               </div>
             )}
@@ -134,7 +134,7 @@ export default function UrgentModal({
                 className={`rounded-2xl p-4 border ${
                   result.eligible
                     ? "bg-green/10 border-green/30"
-                    : "bg-black/[0.03] border-black/[0.09]"
+                    : "bg-line/[0.03] border-line/[0.09]"
                 }`}
               >
                 {result.eligible ? (
@@ -149,7 +149,7 @@ export default function UrgentModal({
                       {result.due_date &&
                         `Repay by ${new Date(result.due_date).toLocaleDateString("en-NG", { day: "numeric", month: "short" })} · auto-deducted from wallet on due date`}
                     </div>
-                    <div className="inline-flex items-center gap-1.5 text-[10.5px] text-slate bg-black/[0.03] border border-black/[0.07] rounded-full px-2.5 py-1">
+                    <div className="inline-flex items-center gap-1.5 text-[10.5px] text-slate bg-line/[0.03] border border-line/[0.07] rounded-full px-2.5 py-1">
                       <Landmark size={11} />
                       Funds held & disbursed by Zenith Bank
                     </div>
@@ -171,7 +171,7 @@ export default function UrgentModal({
             )}
             <button
               onClick={handleClose}
-              className="w-full border border-black/[0.09] text-paper font-medium text-sm rounded-2xl py-3.5 mt-2.5"
+              className="w-full border border-line/[0.09] text-paper font-medium text-sm rounded-2xl py-3.5 mt-2.5"
             >
               {result ? "Done" : "Not now"}
             </button>

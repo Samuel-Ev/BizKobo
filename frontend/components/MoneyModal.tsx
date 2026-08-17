@@ -82,11 +82,11 @@ export default function MoneyModal({
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="w-full lg:max-w-md bg-ink-2 border border-black/[0.09] rounded-t-[28px] lg:rounded-[24px] p-6 pb-8"
+            className="w-full lg:max-w-md bg-ink-2 border border-line/[0.09] rounded-t-[28px] lg:rounded-[24px] p-6 pb-8"
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-black/[0.045] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-line/[0.045] flex items-center justify-center">
                   <Icon size={15} className="text-copper-light" />
                 </div>
                 <h2 className="font-display text-lg font-semibold text-paper">{mode && TITLES[mode]}</h2>
@@ -174,7 +174,7 @@ export default function MoneyModal({
                         className={`w-full flex items-center justify-between rounded-xl border px-4 py-3 text-left transition-colors ${
                           selectedFee?.id === fee.id
                             ? "border-copper-light/60 bg-copper/10"
-                            : "border-black/[0.09] bg-ink-3"
+                            : "border-line/[0.09] bg-ink-3"
                         }`}
                       >
                         <div>
@@ -190,7 +190,7 @@ export default function MoneyModal({
                 )}
 
                 {error && (
-                  <div className="text-[12.5px] text-red-700 bg-red-50 border border-red-200 rounded-xl px-3.5 py-2.5">
+                  <div className="text-[12.5px] text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/50 rounded-xl px-3.5 py-2.5">
                     {error}
                   </div>
                 )}
@@ -212,7 +212,7 @@ export default function MoneyModal({
 }
 
 const inputClass =
-  "w-full bg-ink-3 border border-black/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60 transition-colors";
+  "w-full bg-ink-3 border border-line/[0.09] rounded-xl px-4 py-3 text-[14px] text-paper placeholder-slate focus:outline-none focus:border-copper-light/60 transition-colors";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (

@@ -11,7 +11,7 @@ const ACTIONS = [
 ] as const;
 
 const TONE_STYLES: Record<string, string> = {
-  neutral: "bg-black/[0.04]",
+  neutral: "bg-line/[0.04]",
   green: "bg-green/20",
   amber: "bg-amber/20",
 };
@@ -31,7 +31,7 @@ export default function QuickActions({ onAction }: { onAction: (key: string) => 
           className={`flex flex-col items-center gap-2 rounded-2xl border py-3.5 px-1.5 ${
             key === "urgent"
               ? "border-amber/35 bg-gradient-to-b from-amber/[0.14] to-amber/[0.02]"
-              : "border-black/[0.07] bg-ink-2"
+              : "border-line/[0.07] bg-ink-2"
           }`}
         >
           <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${TONE_STYLES[tone]}`}>

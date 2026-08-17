@@ -4,13 +4,41 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-ink: 250 251 249;
+  --color-ink-2: 255 255 255;
+  --color-ink-3: 240 244 240;
+  --color-paper: 22 40 29;
+  --color-slate: 102 116 107;
+  --color-slate-dark: 66 80 70;
+  --color-line: 0 0 0;
+}
+
+.dark {
+  --color-ink: 12 15 13;
+  --color-ink-2: 22 26 22;
+  --color-ink-3: 30 35 30;
+  --color-paper: 240 244 240;
+  --color-slate: 154 168 158;
+  --color-slate-dark: 190 202 192;
+  --color-line: 255 255 255;
+}
+
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
 body {
-  background: #FAFBF9;
+  background: rgb(var(--color-ink));
   font-feature-settings: "tnum" 1;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .no-scrollbar::-webkit-scrollbar {

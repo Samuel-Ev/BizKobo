@@ -47,6 +47,22 @@ def get_my_link(
     return link
 
 
+@router.post("/regenerate-link", response_model=schemas.ParentLinkOut)
+def regenerate_link(
+    current_user: models.User = Depends(auth.get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Issues a fresh share token, immediately invalidating the old one —
+    use this if a link was shared with the wrong person or leaked."""
+    link = db.query(models.ParentLink).filter(models.ParentLink.student_id == current_user.id).first()
+    if not link:
+        raise HTTPException(status_code=404, detail="No parent link set up yet")
+    link.share_token = models.gen_id()
+    db.commit()
+    db.refresh(link)
+    return link
+
+
 @router.get("/view/{share_token}", response_model=schemas.ParentView)
 def parent_view(share_token: str, db: Session = Depends(get_db)):
     """Public — no login required. The share_token itself is the access

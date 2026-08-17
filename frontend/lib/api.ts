@@ -115,6 +115,15 @@ export interface SavingsGroup {
   current_cycle: number;
 }
 
+export interface LedgerRecord {
+  id: string;
+  date: string;
+  description: string;
+  category: string;
+  type: string;
+  amount: number;
+}
+
 export interface ParentLink {
   id: string;
   parent_name: string | null;

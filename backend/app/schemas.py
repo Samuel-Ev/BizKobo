@@ -182,6 +182,37 @@ class ContributeRequest(BaseModel):
     group_id: str
 
 
+class LedgerRecordCreate(BaseModel):
+    description: str
+    category: str = "general"
+    type: str  # "income" or "expense"
+    amount: float
+    date: Optional[datetime] = None
+
+
+class LedgerRecordOut(BaseModel):
+    id: str
+    date: datetime
+    description: str
+    category: str
+    type: str
+    amount: float
+
+    class Config:
+        from_attributes = True
+
+
+class SubscriptionStatus(BaseModel):
+    active: bool
+    product: str
+    expires_at: Optional[datetime] = None
+
+
+class SubscribeRequest(BaseModel):
+    product: str
+    amount: float
+
+
 class ParentLinkCreate(BaseModel):
     parent_name: Optional[str] = None
     parent_email: Optional[str] = None

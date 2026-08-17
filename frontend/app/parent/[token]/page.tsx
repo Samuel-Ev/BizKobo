@@ -67,7 +67,7 @@ export default function ParentViewPage() {
         <h1 className="font-display text-xl font-semibold text-paper mb-1">{data.student_name}</h1>
         <p className="text-slate text-[13px] mb-6">Read-only parent view — spending summary</p>
 
-        <div className="rounded-xl2 border border-black/[0.08] bg-ink-2 p-5 mb-5">
+        <div className="rounded-xl2 border border-line/[0.08] bg-ink-2 p-5 mb-5">
           <div className="text-[12px] text-slate mb-1.5">Current wallet balance</div>
           <div className="font-mono text-3xl font-semibold text-paper tabular">
             ₦{data.wallet_balance.toLocaleString("en-NG")}
@@ -75,7 +75,7 @@ export default function ParentViewPage() {
         </div>
 
         {data.monthly_budget_limit && (
-          <div className="rounded-xl2 border border-black/[0.07] bg-ink-2 p-5 mb-5">
+          <div className="rounded-xl2 border border-line/[0.07] bg-ink-2 p-5 mb-5">
             <div className="flex items-center justify-between mb-3">
               <span className="text-[12.5px] font-semibold text-paper">This month's spending</span>
               {data.over_budget ? (
@@ -88,7 +88,7 @@ export default function ParentViewPage() {
                 </span>
               )}
             </div>
-            <div className="h-2 rounded-full bg-black/[0.04] overflow-hidden mb-2">
+            <div className="h-2 rounded-full bg-line/[0.04] overflow-hidden mb-2">
               <div
                 className={`h-full rounded-full ${data.over_budget ? "bg-amber" : "bg-green"}`}
                 style={{ width: `${budgetPct}%` }}
@@ -102,7 +102,7 @@ export default function ParentViewPage() {
         )}
 
         <div className="text-[13px] font-semibold text-paper mb-3">Recent transactions</div>
-        <div className="rounded-xl2 border border-black/[0.07] bg-ink-2 divide-y divide-black/[0.07] overflow-hidden">
+        <div className="rounded-xl2 border border-line/[0.07] bg-ink-2 divide-y divide-line/[0.07] overflow-hidden">
           {data.recent_transactions.map((t) => (
             <div key={t.id} className="flex items-center justify-between px-4 py-3">
               <div>

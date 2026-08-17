@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .database import Base, engine
-from .routers import auth, wallet, transactions, trust, urgent, fees, sme, voice, savings, parent
+from .routers import auth, wallet, transactions, trust, urgent, fees, sme, voice, savings, parent, subscriptions, ledger
 
 Base.metadata.create_all(bind=engine)
 
@@ -38,6 +38,8 @@ app.include_router(sme.router)
 app.include_router(voice.router)
 app.include_router(savings.router)
 app.include_router(parent.router)
+app.include_router(subscriptions.router)
+app.include_router(ledger.router)
 
 
 @app.get("/")

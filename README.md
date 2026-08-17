@@ -128,3 +128,13 @@ Remove-Item -Recurse -Force venv
 py -3.13 -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
+
+
+python -m app.seed
+uvicorn app.main:app --reload --port 8811
+
+
+
+
+
+//Again---1

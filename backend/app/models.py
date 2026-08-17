@@ -77,6 +77,7 @@ class TransactionType(str, enum.Enum):
     vendor_payment = "vendor_payment"
     loan_disbursement = "loan_disbursement"
     loan_repayment = "loan_repayment"
+    subscription_payment = "subscription_payment"
 
 
 class Transaction(Base):
@@ -223,6 +224,48 @@ class Contribution(Base):
 # ---------------------------------------------------------------------------
 # Parents' financial control
 # ---------------------------------------------------------------------------
+
+class LedgerRecordType(str, enum.Enum):
+    income = "income"
+    expense = "expense"
+
+
+class LedgerRecord(Base):
+    """
+    A manual, spreadsheet-style record — separate from real wallet
+    Transactions. This is for tracking things that didn't happen inside
+    BizKobo (cash sales, informal spending) rather than moving real money.
+    Available to every user, not just business owners.
+    """
+    __tablename__ = "ledger_records"
+
+    id = Column(String, primary_key=True, default=gen_id)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    date = Column(DateTime, default=datetime.utcnow)
+    description = Column(String, nullable=False)
+    category = Column(String, default="general")
+    type = Column(Enum(LedgerRecordType), nullable=False)
+    amount = Column(Float, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class Subscription(Base):
+    """
+    Tracks paid access to gated features (e.g. Past Questions). Payment is
+    simulated by deducting straight from the wallet ledger — same pattern
+    as Pay Fees — rather than a fake flag, so the demo shows a real money
+    movement end to end.
+    """
+    __tablename__ = "subscriptions"
+
+    id = Column(String, primary_key=True, default=gen_id)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    product = Column(String, nullable=False)  # e.g. "past_questions"
+    active = Column(Boolean, default=True)
+    amount_paid = Column(Float, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    expires_at = Column(DateTime, nullable=True)
+
 
 class ParentLink(Base):
     """
